@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tujhme Rab Dikhta Hai</title>
+    <link rel="icon" href="heart.png" type="png">
+    <link rel="stylesheet" href="css.css">
+</head>
+<body>
+    <div id="image-container"></div>
+    <div id="note-modal">
+        <span class="close-button" onclick="closeNote()">x</span>
+        <p id="note-text"></p>
+    </div>
+    <button id="love-button"> 🩷 </button>
+    <audio id="love-music" src="rab.mp3"></audio>
+    <script src="js.js">
+        const images = [
+    // Add the URLs of your 26 different images here
+    'D:\cpl\heartpng\smallimg\imgA.jpg',
+    'small/2.jpeg',
+    'small/3.jpeg',
+    'small/4.jpeg',
+    'small/5.jpeg',
+    'small/6.jpeg', 
+    'small/7.jpeg', 
+    'small/8.jpeg', 
+    'small/9.jpeg',
+    'small/10.jpeg',
+    'small/11.jpeg',
+    'small/12.jpeg',
+    'small/13.jpeg', 
+    'small/14.jpeg',
+    'small/15.jpeg',
+    'small/16.jpeg',
+    'small/17.jpeg',
+    'small/18.jpeg',
+    'small/19.jpeg', 
+    'small/20.jpeg',
+    'small/21.jpeg',
+    'small/22.jpeg',
+    'small/23.jpeg',
+    'small/24.jpeg',
+    'small/25.jpeg',
+    
+];
+ 
+const bigImageParts = [
+    //parts of big image
+    //'big/00.jpg', 'big/05.jpg', 'big/10.jpg', 'big/15.jpg', 'big/20.jpg',
+   // 'big/01.jpg', 'big/06.jpg', 'big/11.jpg', 'big/16.jpg', 'big/21.jpg',
+   // 'big/02.jpg', 'big/07.jpg', 'big/12.jpg', 'big/17.jpg', 'big/22.jpg',
+   // 'big/03.jpg', 'big/08.jpg', 'big/13.jpg', 'big/18.jpg', 'big/23.jpg',
+   // 'big/04.jpg', 'big/09.jpg', 'big/14.jpg', 'big/19.jpg', 'big/24.jpg',
+    
+    //new check
+    'extract/row-1-column-1.jpg', 'extract/row-1-column-2.jpg', 'extract/row-1-column-3.jpg', 'extract/row-1-column-4.jpg', 'extract/row-1-column-5.jpg',
+    'extract/row-2-column-1.jpg', 'extract/row-2-column-2.jpg', 'extract/row-2-column-3.jpg', 'extract/row-2-column-4.jpg', 'extract/row-2-column-5.jpg',
+    'extract/row-3-column-1.jpg', 'extract/row-3-column-2.jpg', 'extract/row-3-column-3.jpg', 'extract/row-3-column-4.jpg', 'extract/row-3-column-5.jpg',
+    'extract/row-4-column-1.jpg', 'extract/row-4-column-2.jpg', 'extract/row-4-column-3.jpg', 'extract/row-4-column-4.jpg', 'extract/row-4-column-5.jpg',
+    'extract/row-5-column-1.jpg', 'extract/row-5-column-2.jpg', 'extract/row-5-column-3.jpg', 'extract/row-5-column-4.jpg', 'extract/row-5-column-5.jpg',
+ 
+ 
+]
+ 
+const notes = [
+   "moments",
+    "Sisters",
+    "enjoy",
+ 
+];
+ 
+const imageContainer = document.getElementById('image-container');
+const noteModal = document.getElementById('note-modal');
+const noteText = document.getElementById('note-text');
+const flipButton = document.getElementById('love-button');
+const backgroundMusic = document.getElementById('love-music');
+ 
+let flipped = false;
+ 
+ 
+flipButton.addEventListener('mouseenter',function(){
+    flipButton.textContent = ' ❤ ';
+});
+ 
+ 
+flipButton.addEventListener('mouseleave', function(){
+    flipButton.textContent = ' 🩷 ';
+});
+ 
+// Create a 5x5 grid of images
+ 
+    images.forEach((src, index) => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.classList.add('image-tile');
+    img.dataset.index = index;
+    img.addEventListener('click', () => showNoteModal(index));
+    imageContainer.appendChild(img);
+});
+ 
+//appending all images
+ 
+document.querySelectorAll('.image-tile').forEach
+((img, index) => {
+img.addEventListener('click',(event) => {
+    if(!flipped) showNoteModal(event, index);
+});
+});
+ 
+function showNoteModal(event, index) {
+    
+        const rect = event.target.getBoundingClientRect();
+noteModal.style.top = ${rect.top + window.scrollY}px;
+noteModal.style.left = ${rect.left + window.scrollX}px;
+        noteText.textContent = notes[index];
+noteModal.style.display = 'block';
+ 
+        
+    
+}
+ 
+function closeNote() {
+noteModal.style.display = 'none';
+}
+ 
+flipButton.addEventListener('click', () => {
+    flipped = !flipped;
+    if (flipped) {
+        flipImages();
+backgroundMusic.play();
+    } else {
+        revertImages();
+        backgroundMusic.pause();
+        backgroundMusic.currentTime = 0;
+    }
+});
+ 
+function flipImages() {
+    const tiles = document.querySelectorAll('.image-tile');
+    let order = Array.from({ length: tiles.length }, (_, i) => i);
+    order.sort(() => Math.random() - 0.5);
+ 
+    order.forEach((index, i) => {
+        setTimeout(() => {
+            const img = tiles[index];
+            img.src = bigImageParts[index];
+            img.classList.add('flipped','fadeIn');
+            img.removeEventListener('click',showNoteModal);
+        }, i * 900);
+    });
+}
+ 
+function revertImages() {
+    const tiles = document.querySelectorAll('.image-tile');
+    tiles.forEach((img, index) => {
+        img.src = images[index];
+        img.classList.remove('flipped');
+        img.addEventListener('click', (event) => {
+            if (!flipped) showNoteModal(event, index);
+    });
+});
+}
+    </script>
+    <style> 
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ef3ca7;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+ 
+#image-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 1px;
+    width: 100vw;
+    height: calc(100vh - 50px); /* Subtract the height of the button */
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+ 
+.image-tile {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.7s ease-in-out;
+    cursor: pointer;
+    opacity: 0;
+    animation: fadeInImage 2.5s forwards;
+    animation-delay: calc(0.1s*var(--index));
+}
+ 
+@keyframes fadeIn {
+    to{
+        opacity: 1;
+    }
+}
+ 
+@keyframes fadeInImage {
+    to{
+        opacity: 1;
+    }
+}
+ 
+ 
+#love-button {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    /* background-image: url('heart.png'); */
+ 
+    /* color: white; */
+    border: none;
+    background-color: transparent;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 70px;
+    z-index: 1000;
+}
+ 
+/* #love-button:hover {
+    
+}  */
+ 
+.flipped {
+    pointer-events: none; /* Disable clicks after flipping */
+}
+ 
+#note-modal {
+    position: absolute;
+    margin: -20px;
+    margin-top: -70px;
+    background-color: transparent;
+    /* padding: 15px; */
+    /* border-radius: 8px; */
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
+ 
+    border-radius: 8px;
+    background-image: url('heart1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* background-position: center; */
+    width: 360px;
+    height: 360px;
+    scale: 70%;
+    display: none; /* Hidden initially */
+    z-index: 1000;
+    /* background-color: rgba(244, 69, 69, 0.8); */
+    
+}
+ 
+#note-text {
+    position: relative;
+    top: 40%;
+    left: 55%;
+ 
+    transform: translate(-50%,-50%);
+    text-align: center;
+    font-family: cursive;
+    font-size: 20px;
+    color: rgb(200, 228, 248);
+    line-height: 1.5;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+   
+    z-index: 1;
+    opacity: 1;
+ 
+}
+ 
+ 
+.close-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    font-size: 25px;
+    text-align: center;
+    cursor: pointer;
+    float: right;
+    z-index: 2;
+}
+ 
+#love-music {
+    display: none;
+}
+    </style>
+</body>
+</html>

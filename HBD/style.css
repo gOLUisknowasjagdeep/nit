@@ -1,0 +1,251 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+/* Header Section */
+header {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  overflow: hidden;
+}
+/* Image Slider */
+.slider {
+  display: flex;
+  animation: slide 12s infinite;
+}
+.slider img {
+  width: 100vw;
+  height: 50vh;
+  object-fit: cover;
+}
+/* Slide Animation */
+@keyframes slide {
+  0% { transform: translateX(0); }
+  33% { transform: translateX(-100vw); }
+  66% { transform: translateX(-200vw); }
+  100% { transform: translateX(0); }
+}
+/* Overlay Content */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+}
+.overlay h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+/* Play/Pause Button */
+.play-button {
+  padding: 15px 30px;
+  font-size: 1rem;
+  background-color: #ff5733;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.play-button:hover {
+  background-color: #2be180;
+}
+/* Message Card */
+.message-card {
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px; /* Added space below the message card */
+  position: relative;
+  z-index: 1; /* Ensure it is above the other cards */
+  transition: transform 0.3s;
+  cursor: pointer; /* To resemble a button */
+}
+.message-card:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+/* Square Frame for Birthday Wish */
+.square-frame {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  background-color: pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+/* Inner Image */
+.square-frame img {
+  width: 90%;
+  height: 90%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+/* Show Square Frame */
+.square-frame.show {
+  opacity: 1;
+}
+/* Main Content Section */
+main {
+  flex: 1;
+  padding: 20px;
+  background: url('img/b.png') no-repeat center center/cover;
+  display: flex;
+  flex-direction: column; /* Keeps message card above */
+  align-items: center;
+}
+/* Card Section */
+.card-container {
+  display: flex; /* Align cards in a row */
+  justify-content: center; /* Center cards */
+  flex-wrap: wrap; /* Wrap if necessary */
+}
+.card {
+  position: relative;
+  width: 200px; /* Increased width */
+  height: 250px; /* Increased height */
+  margin: 10px;
+  perspective: 1000px;
+  transition: transform 0.6s;
+}
+.card-inner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: white;
+  backface-visibility: hidden;
+}
+.card-front {
+  background-color: #9eab17;
+}
+.card-back {
+  background-color: #FF5733;
+  transform: rotateY(180deg);
+}
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+/* Footer Section */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  header, main, footer {
+    padding: 15px;
+    text-align: center;
+  }
+  .overlay h1 {
+    font-size: 1.5rem;
+  }
+  .message-card {
+    width: 90%;
+  }
+  .card {
+    width: 150px; /* Adjusted for smaller screens */
+    height: 200px;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* New Section Styles */
+.card-row-section {
+  padding: 40px 0;
+  /* background-color: #f9f9f9; */
+  background: url('img/b.png') no-repeat center center/cover;
+  text-align: center;
+}
+
+.card-row {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+}
+
+.card {
+  /* background: url('img/b.png') no-repeat center center/cover; */
+  Background-color: #f9f9f935;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 180px;
+  padding: 20px;
+  color: #000000;
+  text-align: center;
+  transition: transform 0.3s;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.card p {
+  margin: 15px 0;
+}
+
+.card button {
+  background-color: #ff4081;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.card button:hover {
+  background-color: #e91e63;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}

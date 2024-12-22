@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000000;
+    margin: 0;
+}
+
+.id-card {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgba(2, 213, 255, 0.984);
+    background-color: #fff;
+    overflow: hidden;
+    text-align: center;
+    animation: slide-in 1s ease-out;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.header {
+    background-color: #226cf4;
+    color: #fff;
+    padding: 20px;
+}
+
+.header .logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 10%;
+}
+
+.photo img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-top: -50px;
+    border: 1px solid #fff;
+}
+
+.details {
+    padding: 20px;
+}
+
+.details h3 {
+    margin: 10px 0;
+    color: #2c3e50;
+}
+
+.details table {
+    width: 100%;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.details table td {
+    padding: 5px;
+    color: #555;
+}
+
+.details table td:first-child {
+    font-weight: bold;
+    width: 40%;
+}
+
+    </style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ID Card</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="id-card">
+        <div class="header">
+            <img src="assets/images/portfolio-02.jpg" alt="Company Logo" class="logo">
+            <h2>Opscodify</h2>
+        </div>
+        <div class="photo">
+            <img src="assets/images/portfolio-01.jpg" alt="Profile Photo">
+        </div>
+        <div class="details">
+            <h3>golu</h3>
+            <table>
+                <tr>
+                    <td>ID:</td>
+                    <td>123456789</td>
+                </tr>
+                <tr>
+                    <td>Class</td>
+                    <td>BCA</td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>golu@gmail.com</td>
+                </tr>
+                <tr>
+                    <td>Phone:</td>
+                    <td>+91 0000000000</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

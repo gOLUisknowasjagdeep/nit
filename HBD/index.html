@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday My love🥰🫂</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    /* Header Section */
+    header {
+      position: relative;
+      width: 100%;
+      height: 50vh;
+      overflow: hidden;
+    }
+    /* Image Slider */
+    .slider {
+      display: flex;
+      animation: slide 12s infinite;
+    }
+    .slider img {
+      width: 100vw;
+      height: 50vh;
+      object-fit: cover;
+    }
+    /* Slide Animation */
+    @keyframes slide {
+      0% { transform: translateX(0); }
+      33% { transform: translateX(-100vw); }
+      66% { transform: translateX(-200vw); }
+      100% { transform: translateX(0); }
+    }
+    /* Overlay Content */
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      background: rgba(0, 0, 0, 0.5);
+      color: rgb(232, 49, 49);
+      text-align: center;
+    }
+    .overlay h1 {
+    font-size: 2rem;  
+    font-weight: bold; 
+    color: #FF1493;   
+    font-family: 'Cooper', sans-serif;  
+    text-align: center;
+    margin-bottom: 20px; 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
+    animation: fadeIn 2s ease-in-out;
+  }
+  /* Optional fade-in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+    /* Play/Pause Button */
+    .play-button {
+      padding: 15px 30px;
+      font-size: 1rem;
+      background-color: #ff5733;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .play-button:hover {
+      background-color: #40eb902a;
+    }
+    /* Message Card */
+    .message-card {
+      background-color: #560e3cd2;
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(245, 5, 5, 0.219);
+      margin-bottom: 20px; /* Added space below the message card */
+      position: relative;
+      z-index: 1; /* Ensure it is above the other cards */
+      transition: transform 0.3s;
+      cursor: pointer; /* To resemble a button */
+    }
+    .message-card:hover {
+      transform: scale(1.05); /* Slightly enlarge on hover */
+    }
+    /* Square Frame for Birthday Wish */
+    .square-frame {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 200px;
+      height: 200px;
+      background-color: rgb(201, 31, 59);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    /* Inner Image */
+    .square-frame img {
+      width: 90%;
+      height: 90%;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    /* Show Square Frame */
+    .square-frame.show {
+      opacity: 1;
+    }
+    /* Main Content Section */
+    main {
+      flex: 1;
+      padding: 20px;
+      /* background-color: #b11313; */
+      background: url('img/image.png') no-repeat center center/cover;
+      display: flex;
+      flex-direction: column; /* Keeps message card above */
+      align-items: center;
+    }
+    /* Card Section */
+    .card-container {
+      display: flex; /* Align cards in a row */
+      justify-content: center; /* Center cards */
+      flex-wrap: wrap; /* Wrap if necessary */
+    }
+    .card {
+      position: relative;
+      width: 200px; /* Increased width */
+      height: 250px; /* Increased height */
+      margin: 10px;
+      perspective: 1000px;
+      transition: transform 0.6s;
+    }
+    .card-inner {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      color: white;
+      backface-visibility: hidden;
+    }
+    .card-front {
+      background-color: #9eab17;
+    }
+    .card-back {
+      background-color: #FF5733;
+      transform: rotateY(180deg);
+    }
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+    /* Footer Section */
+    footer {
+      background-color: #16020267;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header, main, footer {
+        padding: 15px;
+        text-align: center;
+      }
+      .overlay h1 {
+        font-size: 1.5rem;
+      }
+      .message-card {
+        width: 90%;
+      }
+      .card {
+        width: 150px; /* Adjusted for smaller screens */
+        height: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section with Image Slider -->
+  <header>
+    <div class="slider">
+      <img src="img/memeory1.jpeg" alt="Slide 1">
+      <img src="img/WhatsApp Image 2024-11-01 at 08.18.26.jpeg" alt="Slide 2">
+      <img src="img/WhatsApp Image 2024-11-01 at 08.18.24 (1).jpeg" alt="Slide 3">
+      <img src="img/WhatsApp Image 2024-11-01 at 08.16.45.jpeg" alt="Slide 4">
+      <img src="img/WhatsApp Image 2024-11-01 at 08.16.57.jpeg" alt="Slide 5">
+      <img src="img/WhatsApp Image 2024-11-01 at 08.17.19.jpeg" alt="Slide 6">
+      <img src="img/WhatsApp Image 2024-11-01 at 08.17.22.jpeg" alt="slide 7">
+      <img src="img/memory15.jpeg" alt="slide 8">
+      <img src="img/WhatsApp Image 2024-11-01 at 08.17.28.jpeg" alt="slide 9">
+      <img src="img/memory9.jpeg" alt="slide 10">
+      <img src="img/WhatsApp Image 2024-11-01 at 08.17.03.jpeg" alt="slide 11">
+      <img src="img/WhatsApp Image 2024-11-01 at 08.18.25.jpeg" alt="slide 12">
+      <img src="img/WhatsApp Image 2024-11-01 at 08.17.50.jpeg" alt="slide 12">
+      <img src="img/memory8.jpeg" alt="slide 13">
+      <img src="img/WhatsApp Image 2024-11-01 at 08.18.20 (2).jpeg" alt="slide 14">
+      <img src="img/memory4.jpeg" alt="slide 16">
+      <img src="img/WhatsApp Image 2024-11-01 at 08.17.58.jpeg" alt="slide 17">
+      <img src="img/WhatsApp Image 2024-11-01 at 08.18.02.jpeg" alt="slide 18">
+      <img src="img/WhatsApp Image 2024-11-01 at 08.18.24 (1).jpeg" alt="slide 19">
+      <img src="img/WhatsApp Image 2024-11-01 at 08.18.21.jpeg" alt="slide 20">
+      <img src="img/WhatsApp Image 2024-11-01 at 08.18.18.jpeg" alt="slide 21">
+
+    </div>
+    <div class="overlay">
+      <h1>Happy Birthday Hubby😘❤🤗🥰</h1>
+      <button class="play-button" onclick="togglePlayPause()">I Love You Ladoo❤😘</button>
+    </div>
+  </header>
+  <!-- Main Content Section -->
+  <main>
+    <!-- Message Card Styled Like a Button -->
+    <div class="message-card">
+      A SPECIALs MESSAGE FOR YOU HUBBY😘 FROM YOUR WIFEY🥰✨
+    <br>Happy Birthday to the Love of my life❤😘🥳🥳
+    <br>First of all,I Love You and I'll always Love You Ladoo😚😚😚😚
+    <br>Happy Birthday my PRINCE CHARMING🤴💕
+    <br>Happy Birthday to the man who stole my heart❤ and never get it back😘🤞🥰
+    <br>Happy Birthday to the man who teach me what actually Love is..🤗❤
+    <br>Happy Birthday mera chhota sa Pyara sa Baccha 😚😚🧑🏻‍❤‍🧑🏽🌍❤
+    <br>Happy Birthday mere Jigar ke tukde,mere aankho ke taare,mera laal,mera hara,mera peela,mera neela,mera sb kuchh..🤗❤🥰😘
+    <br> Thank-you Ladoo meri life me aane ke liye or hmesa mujhse jyda mera khyal rkhne ke liye🥺🥰 
+    <br> Mujhe pyaar sikhane ke liye, mujhe Sushant ki Sadhna bnane ke liye bnane ke liye💏❤🙈😘✨
+    <br>Aapke bina ek pal bhi rhna mushkil hai mere liye,toh Please🥺 kbhi mujhe chhorne ka sochna bhi mt🥺🥺🤞
+    <br>Aapko duniya jahaan ki hr khusiyaan dena chahti hu mai hmesaaaaa,itni mohabbat sadhna ko sushant se or hmesa rhegi🤞🥰💏😘❤
+      <br>I will always Loveeeee Youuu Hubby... 🥺❤😘😘 
+     <br> I loveeee youuuu the mostttt you know that 😚😚😚😚
+      <br>I loveeee youuuu mela chhotu sa pyara sa cutuuu sa baccha 😚😚😚😚 
+      <br>Thankyou bhagwan jii for giving me such a handsome,varing and loving Life Partner 🤞🏻❤
+      <br>Happy Birthday to the one who makes me smile and who makes my heart skip a beat💗💓
+      <br>You bring so much love❤, warmth🫂 and happiness🥰 into my life🤗.May your Birthday be as incredible as you are😘🤞.
+      <br>For me you're the most handsome man in this world🌍😍😘. 
+      <br>I have loved you for now and will love you till eternity♾❤. 
+      <br>Even when the light of God would fade, my love for you won't ever❤
+      <br>Mujhe aapke har ehsaas se pyaar hai,aapki aankhe,aapki smile se pyaar hai🥰❤,Or hmesaaa rhega🤗💓
+</div>
+    <div class="message-card">
+      <br>You're the precious gift, to me your presence holds 🫂 something special beside me.
+      <br> When I'm with you I can be who I'm I can be my true self,I can be in the naughtiest and cutest version of me😉😘
+      <br> I don't have to makeup that I make so much mistakes,and I hurt you most of the time But you still love me the same🥺🫂❤
+      <br> No distance can ever dull the love I have for you❤🥰.
+      <br> Every moment in life you choose to stand by me, I'm in love with that..
+      <br> Every time you exactly get to know I ain't feeling good, I'm in love with that...<br>I am in Love with you My Love🤞❤🥹😚
+      <br>I just want you to be with me holding my hands in every good or bad situation,
+       <br> From dealing with any situation, the one thing I need is your support🫂🤗.For me it was always you❤🤞<br>I won't ask for anyone if you're there😘
+       <br>Ye jo hmare Ishq hai, ye na hmne kiya hai na ye apne aap hua hai,Ye toh hme diya gya hai kyuki ye hmare naseeb me tha🤞✨
+       <br>Woh ishq jisme na hme millne ki fikr hai or na judai ka drr kuch hai toh woh ek dusre ke liye bepanaah mohabbat🤗🫂
+       <br>Ladoo😚 hmare beech kitni bhi milo ki durri aajae pr hum dono ek dusre ke dil se kbhi durr nhi hoskte hai or yhi hmari Taqdeer hai🤞😘😘🥰
+      <br>I Loveeee Youuuuu the mosttttt Baccha 🥹💓😚😚😚      
+      <br>I hope you know that, how much I adore you❤🤗😘😘
+      <br>Happy Birthday Pati Parmeshwar jii 🥰😚😚🥳🥳🤩
+      <br>Aap kehte ho mai glow krti hu, Pr sch toh ye hai ki ye glow bhi aapke hone se hi rhti hai,🥺 Dhyaan rkhna ye baat🙄 mera glow na chura lena kbhi🥺
+      <br>Your Birthday is a reminder of how blessed I Feel to have you in my life as my Lover🤞❤🥹😚😚        
+      <br> ~ANUSHANT
+      <br>Happy Birthday to the Love of my Life 💞 
+      <br> Ladoo🥺🥺 b'day aapka hai lekin ek gift dedo n mujhe,
+      <br> Mujhse shaadi karlo Please🥺,aur ek waada bhi kro ki kitne hi gile shikwe ho ladd lena mujhse pr chup reh kr jo sajja dete ho bs woh mt dena kbhi jaan nikl jati h meri😭😭. 
+      <br> Aur bhul kar bhi kabhi durr jaane ki baat naa karoge aur naa hi mujhse kabhi aesa kahoge🥺🥺 
+      <br> Aur ek choti si khwaish mujhpe gussa nahi karoge pyaar se apni chhoti sadhna ki tarah smbhal kar rakhoge🥺🥺
+    </div>
+    <div class="message-card">
+      
+      <br>Thank you for taking care of mr like my Dad🤗,For loving me unconditionally like my mumma🥰 and for supporting me always like a good Hubby😘 jo ki aap ho🤞❤🥰🥺 
+      <br>Halanki It's your duty to take care of your beautiful wifey okay toh mere nakhre bhi uthane honge or mujhe bhi..🙈🤗🤗😘
+      <br>I Love you so much and my feelings are getting stronger day by day🤞🥰
+      <br>Once again Happy Birthday Mera chhota sa pyaara sa baccha❤🤗🤗😘😘
+      <br>I miss you Hubby 💖 
+      <br>I need you in every moments of my life❤
+      <br>I'll always Love you 💗 till my last breath,You will always be in my heart always🤞🥺❤🤗🤗 
+      <br>Thank you so much for being in my life and making me fall in love with myself by choosing me as your Beloved🤞 
+      <br> Once again on your birthday I'm going for this:👉👉
+      <br>Will You please be mine and stay mine for forever and ever and ever...❤🥺🥺♾
+      <br>My Birthday Hope for you is that you get all the success and happiness in your life✨,May your Birthday filled with everything you desire and more🤗🤞✨❤ 
+      <br>ope to celebrate your next Birthday together without any grudges🥰🤞✨😘😘
+      <br>You are the best thing that happens with me 9 years ago and still we are together after so many fights,grudges and arguments🥺
+      <br>which is a great achievment for our relationship🥺😘 , We did this Babe😚💗♾..       ~ANUSHANT FOREVER
+      <br>One Line for you Mere Pati dev jii...👉🥰 Rab se milla ek ayaan bnn gye,khabo ka mere makaam bnn gye,Aapki tareef me jya kahe😘,Aap hmari JAAN ban gye..🫂😘❤🤞
+      <br>Let's Pray ANUSHANT❤,will always stays forever in our hearts❤♾🤞✨
+      <br>Trust me Babe Noone can love you the way I do,Noone can adore you the way I do and rest you knoe very well..🙈😉🥰🥰
+      <br>If I have to say one word to describe you as my world, It would be MAJESTIC❤✨
+    </div>
+    <div class="message-card">
+      <br>I wish that all your wishes comes true🤞,mujhse peecha churane ke alawa🥺😏
+      <br>Jb tk jaan jism se judaa nhi hoti,Sushan Sadhna se or Sadhna Sushant se durr nhi honge🤞🫂❤🥰
+      <br>To my dearest Hubby jii,on your special day,I just want you to know that,You are my forever love🥰🫂,my greatest adventure😘😉,and my safe place🤗
+      <br>My dear soulmate and my crush,I want to tell you that loving you is the best thing I have ever done❤🥰
+      <br>I promise to love you more deeply each passing day❤😘🫂🤞I Love you more than my word can express🥺❤
+      <br>I Love You and I will always love you🫂🤗this is the only truth🤞❤❤🥺
+    </div>
+
+     
+    <div class="card-container">
+      <!--Row 1 card1-->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">Happy Birthday Baccha🤗❤</div>
+          <div class="card-back">
+            <img src="img/b.png" alt="Image 1" style="width: 100%; height: 100%; border-radius: 10px;" >
+          </div>
+        </div>
+      </div>
+      <!--Row 1 card2-->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">Happy Birthday Baccha🤗❤</div>
+          <div class="card-back">
+            <img src="img/" alt="Image 1" style="width: 100%; height: 100%; border-radius: 10px;" >
+          </div>
+        </div>
+      </div>
+      <!--Row 1 card3-->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">Happy Birthday Baccha🤗❤</div>
+          <div class="card-back">
+            <img src="img/" alt="Image 1" style="width: 100%; height: 100%; border-radius: 10px;">
+          </div>
+        </div>
+      </div>
+      <!--Row 1 card4-->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">Happy Birthday Baccha🤗❤</div>
+          <div class="card-back">
+            <img src="img/" alt="Image 1" style="width: 100%; height: 100%; border-radius: 10px;">
+          </div>
+        </div>
+      </div>
+      <!--Row 1 card5-->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">Happy Birthday Baccha🤗❤</div>
+          <div class="card-back">
+            <img src="img/" alt="Image 1" style="width: 100%; height: 100%; border-radius: 10px;">
+          </div>
+        </div>
+      </div>
+      <!--Row 1 card6-->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">Happy Birthday Baccha🤗❤</div>
+          <div class="card-back">
+            <img src="img/" alt="Image 1" style="width: 100%; height: 100%; border-radius: 10px;" >
+          </div>
+        </div>
+      </div>
+      </div>
+      <!--row2-->
+      <div class="card-container">
+        <!--Row 1 card1-->
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">Happy Birthday Baccha🤗❤</div>
+            <div class="card-back">
+              <img src="img/b.png" alt="Image 1" style="width: 100%; height: 100%; border-radius: 10px;">
+            </div>
+          </div>
+        </div>
+          <!--Row 2 card2-->
+          <div class="card">
+            <div class="card-inner">
+              <div class="card-front">Happy Birthday Baccha🤗❤</div>
+              <div class="card-back">
+                <img src="img/b.png" alt="Image 1" style="width: 100%; height: 100%; border-radius: 10px;" >
+              </div>
+            </div>
+          </div>
+           <!--Row 2 card3-->
+           <div class="card">
+            <div class="card-inner">
+              <div class="card-front">Happy Birthday Baccha🤗❤</div>
+              <div class="card-back">
+                <img src="img/b.png" alt="Image 1" style="width: 100%; height: 100%; border-radius: 10px;">
+              </div>
+            </div>
+          </div>
+           <!--Row 2 card4-->
+           <div class="card">
+            <div class="card-inner">
+              <div class="card-front">Happy Birthday Baccha🤗❤</div>
+              <div class="card-back">
+                <img src="img/b.png" alt="Image 1" style="width: 100%; height: 100%; border-radius: 10px;">
+              </div>
+            </div>
+          </div>
+           <!--Row 2 card5-->
+           <div class="card">
+            <div class="card-inner">
+              <div class="card-front">Happy Birthday Baccha🤗❤</div>
+              <div class="card-back">
+                <img src="img/b.png" alt="Image 1" style="width: 100%; height: 100%; border-radius: 10px;"> 
+              </div>
+            </div>
+          </div>
+      </div>
+      <!--row 3-->
+      <div class="card-container">
+        <!--Row 3 card1-->
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">Happy Birthday Baccha🤗❤</div>
+            <div class="card-back">
+              <img src="img/b.png" alt="Image 1" style="width: 100%; height: 100%; border-radius: 10px;" >
+            </div>
+          </div>
+        </div>
+        <!--Row 3 card2-->
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">Happy Birthday Baccha🤗❤</div>
+            <div class="card-back">
+              <img src="img/b.png" alt="Image 1" style="width: 100%; height: 100%; border-radius: 10px;" >
+            </div>
+          </div>
+        </div>
+        <!--Row 3 card3-->
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">Happy Birthday Baccha🤗❤</div>
+            <div class="card-back">
+              <img src="img/b.png" alt="Image 1" style="width: 100%; height: 100%; border-radius: 10px;">
+            </div>
+          </div>
+        </div>
+        <!--Row 3 card4-->
+        <div class="card">
+          <div class="card-inner">
+            <div class="card-front">Happy Birthday Baccha🤗❤</div>
+            <div class="card-back">
+              <img src="img/b.png" alt="Image 1" style="width: 100%; height: 100%; border-radius: 10px;">
+            </div>
+          </div>
+        </div>
+      </div>
+        <!--row 3-->
+        <div class="card-container">
+      <!--Row 4 card1-->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">Happy Birthday Baccha🤗❤</div>
+          <div class="card-back">
+            <img src="img/b.png" alt="Image 1" style="width: 100%; height: 100%; border-radius: 10px;" > 
+          </div>
+        </div>
+      </div>
+      <!--Row 4 card2-->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">Happy Birthday Baccha🤗❤</div>
+          <div class="card-back">
+            <img src="img/b.png" alt="Image 1" style="width: 100%; height: 100%; border-radius: 10px;" >
+          </div>
+        </div>
+      </div>
+      <!--Row 4 card3-->
+      <div class="card">
+        <div class="card-inner">
+          <div class="card-front">Happy Birthday Baccha🤗❤</div>
+          <div class="card-back">
+            <img src="img/b.png" alt="Image 1" style="width: 100%; height: 100%; border-radius: 10px;" >
+          </div>
+        </div>
+      </div>
+    </div>
+      <!--Row 5-->
+    <div class="card-container">
+    <!--Row 5 card1-->
+    <div class="card">
+      <div class="card-inner">
+        <div class="card-front">Happy Birthday Baccha🤗❤</div>
+        <div class="card-back">
+          <img src="img/b.png" alt="Image 1" style="width: 100%; height: 100%; border-radius: 10px;">
+        </div>
+      </div>
+    </div>
+       <!--Row 5 card2-->
+       <div class="card">
+        <div class="card-inner">
+          <div class="card-front">Happy Birthday Baccha🤗❤</div>
+          <div class="card-back">
+            <img src="img/b.png" alt="Image 1" style="width: 100%; height: 100%; border-radius: 10px;" >
+          </div>
+        </div>
+      </div>
+  </div>
+      <!--Row 5-->
+      <div class="card-container">
+     <!--Row 6 card1-->
+     <div class="card">
+      <div class="card-inner">
+        <div class="card-front">Happy Birthday Baccha🤗❤</div>
+        <div class="card-back">
+          <img src="img/b.png" alt="Image 1" style="width: 100%; height: 100%; border-radius: 10px;" >
+        </div>
+      </div>
+    </div>
+  </div>
+  </main>
+  <!-- Footer Section -->
+   <footer>
+    
+</footer>
+  <footer>
+    <p>Happy Birthday ❤😘</p>
+  </footer>
+  <audio id="birthdaySong" src="C:\Users\Jagdeep Kumar\Desktop\demo_faxfare\HBD\song\Kaunsa Mantra Japu Me Bhagwan.mp3"></audio>
+
+    <script>
+        const audio = document.getElementById("birthdaySong");
+
+        function togglePlayPause() {
+            if (audio.paused) {
+                audio.play();
+            } else {
+                audio.pause();
+            }
+        }
+    </script>
+</body>
+</html>

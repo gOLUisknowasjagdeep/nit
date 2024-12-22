@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | C Programming Course</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        nav {
+            background-color: #111;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav .logo {
+            font-size: 1.5em;
+            color: #ff33cc;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+        }
+
+        nav ul li a:hover {
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .main-content h1 {
+            color: #ff33cc;
+            margin-bottom: 20px;
+        }
+
+        .main-content p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .main-content .cta-button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1em;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .main-content .cta-button:hover {
+            background-color: #0056b3;
+        }
+
+        .gallery {
+            display: flex;
+            overflow: hidden;
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+
+        .gallery img {
+    width: 100%;
+    transition: transform 1s ease;
+    transform: translateX(-100%);
+}
+
+
+        footer {
+            background-color: #111;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Opscodify</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="main-content">
+        <h1>Welcome to the C Programming Course</h1>
+        <p>Enhance your programming prowess and unlock new opportunities with our free C programming course.</p>
+        <button class="cta-button" onclick="joinUs()">JOIN US</button>
+    </div>
+    <div class="gallery" id="gallery">
+        <img src="assets/images/portfolio-01.jpg" alt="Image 1">
+        <img src="assets/images/portfolio-02.jpg" alt="Image 2">
+        <img src="assets/images/portfolio-03.jpg" alt="Image 3">
+        <img src="assets/images/portfolio-04.jpg" alt="Image 4">
+    </div>
+    <footer>
+        <p>© 2023 Opscodify. All rights reserved.</p>
+    </footer>
+    <script>
+        function joinUs() {
+            alert("Thank you for your interest! Please visit blacksnwhite.com to join the class.");
+        }
+
+        const gallery = document.getElementById('gallery');
+        let currentIndex = 0;
+        const images = gallery.getElementsByTagName('img');
+        const totalImages = images.length;
+
+        function showNextImage() {
+            images[currentIndex].style.transform = 'translateX(-100%)';
+            currentIndex = (currentIndex + 1) % totalImages;
+            images[currentIndex].style.transform = 'translateX(0)';
+        }
+
+        setInterval(showNextImage, 3000);
+    </script>
+</body>
+</html>

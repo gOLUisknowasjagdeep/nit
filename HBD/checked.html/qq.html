@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skewed Image Cards</title>
+  <style>
+    body {
+      text-align: center;
+      padding: 30px;
+      background: #f8f4f2;
+      font-family: Arial, sans-serif;
+    }
+
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .a-box {
+      display: inline-block;
+      width: 240px;
+      text-align: center;
+    }
+
+    .img-container {
+      height: 230px;
+      width: 200px;
+      overflow: hidden;
+      border-radius: 0px 0px 20px 20px;
+      display: inline-block;
+    }
+
+    .img-container img {
+      transform: skew(0deg, -13deg);
+      height: 250px;
+      margin: -35px 0px 0px -70px;
+    }
+
+    .inner-skew {
+      display: inline-block;
+      border-radius: 20px;
+      overflow: hidden;
+      padding: 0px;
+      transform: skew(0deg, 13deg);
+      font-size: 0px;
+      margin: 30px 0px 0px 0px;
+      background: #c8c2c2;
+      height: 250px;
+      width: 200px;
+    }
+
+    .text-container {
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+      padding: 120px 20px 20px 20px;
+      border-radius: 20px;
+      background: #fff;
+      margin: -120px 0px 0px 0px;
+      line-height: 19px;
+      font-size: 14px;
+    }
+
+    .text-container h3 {
+      margin: 20px 0px 10px 0px;
+      color: #04bcff;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="cards-container">
+    <div class="a-box">
+      <div class="img-container">
+        <div class="img-inner">
+          <div class="inner-skew">
+            <img src="https://images.unsplash.com/photo-1584791097929-aa825fe8e1e1?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ">
+          </div>
+        </div>
+      </div>
+      <div class="text-container">
+        <h3>A blue bird</h3>
+        <div>
+          This is a demo experiment to skew the image container. It looks good.
+        </div>
+      </div>
+    </div>
+
+    <!-- Duplicate this block and change the content for additional cards -->
+    <div class="a-box">
+      <div class="img-container">
+        <div class="img-inner">
+          <div class="inner-skew">
+            <img src="https://images.unsplash.com/photo-1501700493788-fa1a140f3732?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb">
+          </div>
+        </div>
+      </div>
+      <div class="text-container">
+        <h3>Sunny Beach</h3>
+        <div>
+          Experience the serenity of sunny beaches with warm sand and cool water.
+        </div>
+      </div>
+    </div>
+
+    <div class="a-box">
+      <div class="img-container">
+        <div class="img-inner">
+          <div class="inner-skew">
+            <img src="https://images.unsplash.com/photo-1483683804023-6ccdb62f86ef?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb">
+          </div>
+        </div>
+      </div>
+      <div class="text-container">
+        <h3>Cityscape</h3>
+        <div>
+          Discover the charm of bustling cityscapes and vibrant urban life.
+        </div>
+      </div>
+    </div>
+
+    <div class="a-box">
+      <div class="img-container">
+        <div class="img-inner">
+          <div class="inner-skew">
+            <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb">
+          </div>
+        </div>
+      </div>
+      <div class="text-container">
+        <h3>Forest Path</h3>
+        <div>
+          Walk through tranquil forest paths surrounded by lush greenery.
+        </div>
+      </div>
+    </div>
+
+    <div class="a-box">
+      <div class="img-container">
+        <div class="img-inner">
+          <div class="inner-skew">
+            <img src="https://images.unsplash.com/photo-1516238396918-119c005717ee?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb">
+          </div>
+        </div>
+      </div>
+      <div class="text-container">
+        <h3>Mountains</h3>
+        <div>
+          Explore the majestic mountains and enjoy breathtaking views.
+        </div>
+      </div>
+    </div>
+
+    <div class="a-box">
+      <div class="img-container">
+        <div class="img-inner">
+          <div class="inner-skew">
+            <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb">
+          </div>
+        </div>
+      </div>
+      <div class="text-container">
+        <h3>Desert</h3>
+        <div>
+          Feel the calm and solitude of expansive desert landscapes.
+        </div>
+      </div>
+    </div>
+
+    <div class="a-box">
+      <div class="img-container">
+        <div class="img-inner">
+          <div class="inner-skew">
+            <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb">
+          </div>
+        </div>
+      </div>
+      <div class="text-container">
+        <h3>Abstract Art</h3>
+        <div>
+          A modern abstract collection!
+        </div>
+      </div>
+    </div>
+</div>
+</body>
+</html>
